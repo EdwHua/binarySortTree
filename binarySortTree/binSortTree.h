@@ -26,6 +26,7 @@ public:
 	//删除节点
 	bool deleteNode(BSTNode *node);
 	//搜索节点
-	bool searchNode(BSTNode *node ,int * num);
+	bool searchNode(BSTNode *node, int * num);
+	//打印树
+	bool printTree(BSTNode * node);
 };
-
