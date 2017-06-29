@@ -33,23 +33,42 @@ int main() {
 	
 	BSTNode * bstRoot = NULL;
 	binSortTree bstTree(bstRoot, Data, n);
-
 	cout << "到这里建立二叉树完成" << endl;
-	cout << "建立的二叉搜索树的广义表现" << endl;
-
-	bstTree.binSortTree::printTree(bstTree.root->leftSon);
-
-	cout << endl;
-
-
-
-
-
-
-
-
-
 	
+	cout << "建立的二叉搜索树，使用<,>表示左右子树" << endl;
+	bstTree.binSortTree::printTree(bstTree.root);
+	cout << endl;
+	cout<<"中序遍历"<<endl;
+	bstTree.midOrder(bstTree.root);
+
+
+	cout<<"下面插入子树"<<endl;
+	int addOne=0;
+	scanf("%d",&addOne);
+	bstTree.insert(bstTree.root,addOne);
+	cout<<"插入子树完成，下面展示插入之后的二叉树"<<endl;
+	bstTree.printTree(bstTree.root);
+	cout<<"中序遍历"<<endl;
+	bstTree.midOrder(bstTree.root);
+
+	//搜索输入数字
+	cout<<"输入用于搜索的数字：";
+	int searchNum=0;
+	scanf("%d",&searchNum);
+	BSTNode * searchNode = bstTree.root;
+	searchNode = bstTree.searchNode(searchNode, searchNum);
+	if(searchNode==NULL)
+		cout<<"false"<<endl;
+	else{
+		cout<<"true"<<endl;
+		bstTree.printTree(searchNode);
+	}
+	
+	cout<<"Maybe problem"<<endl;
+
+
+
+
 
 
 #ifdef _DEBUG

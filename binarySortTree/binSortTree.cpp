@@ -41,18 +41,43 @@ void binSortTree::insert(BSTNode *& node, int num)
 //中序遍历
 void binSortTree::midOrder(BSTNode * node)
 {
+	if(node!=NULL){
+		midOrder(node->leftSon);
+		cout<<node->data<<' ';
+		midOrder(node->rightSon);
+	}
 }
 
 bool binSortTree::deleteNode(BSTNode * node)
 {
-	return false;
+
+
+	return 1;
 }
 
-bool binSortTree::searchNode(BSTNode * node, int * num)
-{
-	return false;
+BSTNode *  binSortTree::searchNode(BSTNode * node, int num)
+{	
+	if(node == NULL) return NULL;
+	else{
+		if(num == node->data)
+			return node;
+		else if(num < node->data){
+			node=node->leftSon;
+			return searchNode(node,num);
+		}
+		else{
+			node=node->rightSon;
+			return searchNode(node,num);
+	
+		}
+	}
 }
 
+//打印树
+/* *******打印规则*************
+ 同级别 < , >包含的为同一根节点的左右子树
+ 例如，5<1,6>表示5为根节点，1为左子，6为右子
+* ****************************/
 bool binSortTree::printTree(BSTNode * node)
 {
 	if (node == NULL) {
@@ -72,7 +97,7 @@ bool binSortTree::printTree(BSTNode * node)
 			cout << '>';
 			// > 前紧跟的是右子树
 			
-			//同级别 < , >包含的为同一根节点的左右子树
+			
 		}
 		return 1;
 	}
