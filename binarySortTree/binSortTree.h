@@ -24,9 +24,11 @@ public:
 	//插入节点
 	void insert(BSTNode * &node, int num);
 	//删除节点
-	bool deleteNode(BSTNode *node);
+	bool binSortTree::deleteNode(BSTNode * &node, const int &num);
 	//搜索节点
 	BSTNode *  searchNode(BSTNode *node, int num);
 	//打印树
 	bool printTree(BSTNode * node);
+	//从节点清除树
+	void clearTree(BSTNode *& node);
 };
